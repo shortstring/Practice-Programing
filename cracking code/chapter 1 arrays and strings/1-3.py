@@ -5,3 +5,19 @@
 # EXAMPLE
 # Input: "Mr John Smith ", 13
 # Output: "Mr%20John%20Smith"
+
+def replace_space(my_str):
+    for i, char in enumerate(my_str):
+        if char == ' ':
+            my_str = my_str[0:i] + "%20" + my_str[i+1:len(my_str)]
+            return replace_space(my_str)
+    return my_str
+
+
+def main():
+    my_str = "replace my space"
+    print(replace_space(my_str))
+    return 0
+
+
+main()
