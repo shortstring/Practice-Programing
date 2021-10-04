@@ -51,8 +51,8 @@ def main():
     print("After cw rotate")
     print_matrix(my_img)
 
-    my_img = rotate_matrix_cw(my_img)
-    print("After cw rotate")
+    my_img = rotate_matrix_ccw(my_img)
+    print("After ccw rotate")
     print_matrix(my_img)
 
     my_img = rotate_matrix_ccw(my_img)
