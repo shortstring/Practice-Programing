@@ -10,7 +10,7 @@
 
 # this function is useless as it will always return true. There is not limitation on the definition of what
 # qualifies as a palindrome, so any string is considered a permuation of a palindrome of itself.
-def is_permutation_of_palindrome(my_str):
+def is_permutation_of_palindrome(my_str, my_str2):
     my_val1 = 0  # ascii sum
     my_val2 = 0
     my_str = my_str.lower()
@@ -18,16 +18,17 @@ def is_permutation_of_palindrome(my_str):
     for i in my_str:
         my_val1 += ord(i)
     # reverse
-    my_str = my_str[::-1]
+    # my_str = my_str[::-1]
     # sum ascii .. again?
-    for i in my_str:
+    for i in my_str2:
         my_val2 += ord(i)
     return my_val1 == my_val2
 
 
 def main():
-    my_str = "Tact Coa"
-    print(is_permutation_of_palindrome(my_str))
+    my_str = "cat"
+    my_str2 = "tac"
+    print(is_permutation_of_palindrome(my_str, my_str2))
 
 
 main()
