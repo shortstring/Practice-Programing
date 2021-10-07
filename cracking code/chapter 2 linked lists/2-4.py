@@ -8,3 +8,25 @@
 # 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [partition= 5]
 # 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 # Hints: #3, #24
+class Node():
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList():
+    def __init__(self):
+        # Head of list
+        self.head = None
+
+    def print_list(self):
+        if not(self.head):
+            return None
+        self.print_list_r(self.head)
+        print('')
+
+    def print_list_r(self, head):
+        if not(head):
+            return None
+        print(head.data, end=" -> ")
+        self.print_list_r(head.next)
