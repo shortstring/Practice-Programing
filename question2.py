@@ -5,7 +5,8 @@ from random import shuffle
 
 def main():
     my_str = "hello to the world"
-    print(scramble_string(my_str))
+    for i in range(525):
+        print(scramble_string(my_str))
 
 
 def scramble_string(my_str):
