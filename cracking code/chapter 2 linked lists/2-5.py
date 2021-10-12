@@ -60,34 +60,47 @@ class LinkedList():
     def add_lists(self, head_one, head_two):
         if not(head_one) or not(head_two):
             return None
-        self.head = self.add_lists_r(head_one, head_two, self.head)
+        carry = 0  # variable to carry any remainders over 10
+        self.head = self.add_lists_r(head_one, head_two, self.head, carry)
         return self.head
 
-    def add_lists_r(self, head_one, head_two, head_three):
+    def add_lists_r(self, head_one, head_two, head_three, carry):
         # both none
         if not(head_one) and not(head_two):
             return None
         # both next
         elif head_one and head_two:
-            head_three = Node(head_one.data + head_two.data)
+            head_three = Node(head_one.data + head_two.data + carry)
+            carry = 0
+            if head_three.data >= 10:
+                head_three.data -= 10
+                carry += 1
             head_three.next = self.add_lists_r(
-                head_one.next, head_two.next, head_three.next)
+                head_one.next, head_two.next, head_three.next, carry)
         # had one longer
         elif head_one and not head_two:
-            head_three = Node(head_one.data)
+            head_three = Node(head_one.data + carry)
+            carry = 0
+            if head_three.data >= 10:
+                head_three.data -= 10
+                carry += 1
             head_three.next = self.add_lists_r(
-                head_one.next, head_two, head_three)
-            return head_one
+                head_one.next, head_two, head_three, carry)
+            return head_three
         # head two longer
         elif head_two and not head_one:
-            head_three = Node(head_two.data)
+            head_three = Node(head_two.data + carry)
+            carry = 0
+            if head_three.data >= 10:
+                head_three.data -= 10
+                carry += 1
             head_three.next = self.add_lists_r(
-                head_one, head_two.next, head_three)
-            return head_two
+                head_one, head_two.next, head_three, carry)
+            return head_three
         #  both next
         else:
             head_three = self.add_lists_r(
-                head_one.next, head_two.next, head_three.next)
+                head_one.next, head_two.next, head_three.next, carry)
         return head_three
 
 
