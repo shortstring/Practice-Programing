@@ -1,3 +1,18 @@
-# 3.2 Stack Min: How would you design a stack which, in addition to push and pop, has a function min
-# which returns the minimum element? Push, pop and min should all operate in 0(1) time.
-# Hints:  # 27, #59, #78
+my_stack = []
+my_stack.append(5)
+my_stack.append(5)
+my_stack.append(3)
+my_stack.append(6)
+my_stack.append(2)
+my_stack.append(10)
+
+print(my_stack)
+
+def min(stack):
+    min = 1000000
+    while(stack):
+        stack = stack.next   
+        return min
+
+print(min(my_stack))
+print(my_stack)
